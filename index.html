@@ -55,7 +55,7 @@ html{scroll-behavior:smooth}
 <div data-stars="46" style="position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden"></div>
 <div data-blob="1" style="position:absolute;top:0;left:0;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(24,87,255,.55),rgba(24,87,255,.16) 42%,rgba(24,87,255,0) 68%);filter:blur(30px);pointer-events:none;will-change:transform;opacity:.62;transition:opacity .7s ease"></div>
 
-<div data-print-hide="1" style="position:relative;z-index:4;display:flex;align-items:center;justify-content:space-between;padding:26px clamp(18px,4.38vw,56px);border-bottom:1px solid rgba(242,241,239,.14)">
+<div data-print-hide="1" style="position:relative;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:26px clamp(18px,4.38vw,56px);border-bottom:1px solid rgba(242,241,239,.14)">
 <div style="display:flex;flex-direction:column;gap:2px">
 <a href="#/" style="font:500 13px/1.2 'Instrument Sans',sans-serif;letter-spacing:-.01em">Valeryia Sadokha</a>
 <span style="font:400 10px/1 'Geist Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,241,239,.45)">Web &amp; Digital Designer</span>
@@ -1916,6 +1916,7 @@ class Component extends DCLogic {
         const f = e.target;
         if (!window.emailjs) { this.setState({submitStatus: 'error'}); return; }
         this.setState({submitStatus: 'sending'});
+        window.emailjs.init({publicKey:'cIud2g9ygBsvbf5QK'});
         window.emailjs.sendForm('service_2fh2lm2', 'template_rzh8znk', f).then(() => {
           this.setState({submitStatus: 'sent'});
           f.reset();
